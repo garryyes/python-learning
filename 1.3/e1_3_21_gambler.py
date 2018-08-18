@@ -26,6 +26,7 @@ import numpy
 # stdio.writeln(str(100 * wins // trials) + '% wins')
 # stdio.writeln('Avg # bets: ' + str(bets // trials))
 
+
 # mygambler.py
 stake = int(sys.argv[1]) # the initial invest money;
 goal  = int(sys.argv[2]) # the goal amount of cash
