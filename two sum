@@ -5,8 +5,14 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        for num in nums:
-            if ((target - num) in nums) and (target - num != num):
-                return [nums.index(num), nums.index (target-num)]
-        return []
+        # reverse itteration to avoid using self by 'index()'; --that was why. index return the first ever element (similar to soup.find());
+        # learned range (A,B,C) A is always the first one you want to run.
+        n = len(nums)
+        for i in range(0,n):
+            y = target - nums[i]
+
+            if y in nums[i+1:]: # vs. nums[i+1, n] same, but added n as extra computation
+                return [i, nums.index (y)]
+        
+        
         
