@@ -1,0 +1,41 @@
+class Solution(object):
+    def threeSum(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        # you don't return indices, but values!!!
+        
+        n = len(nums)
+        anss =[]
+
+        for i in range (0,n-2):
+            target = 0-nums[i]
+            goods = self.fix_1(target, nums[i+1:])
+            print(goods)
+            if goods:
+                for good in goods:
+                    ans = [i]+good
+                anss.append(ans)
+
+        return anss
+
+    def fix_1(self, target, A):
+        h = {A[0]:0}
+        n = len(A)
+        goods = []
+        for k in range(1,n):
+            diff = target-A[k]
+            if diff in h:
+                index = [k,h[diff]]
+                goods.append(index)
+            else:
+                h[A[k]]=k
+        return goods        
+
+    
+        
+
+
+
+        
